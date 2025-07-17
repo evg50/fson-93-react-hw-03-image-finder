@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-import Phonebook from './Phonebook/Phonebook';
 import { useState } from 'react';
 export const App = () => {
   return (
