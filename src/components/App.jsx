@@ -14,7 +14,7 @@ export const App = () => {
     //   color: '#010101',
     // }}
     >
-      вафыа
+      App
     </div>
   );
 };
