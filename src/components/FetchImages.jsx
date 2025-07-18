@@ -23,7 +23,7 @@ function FetchImages({ query }) {
     };
 
     fetchImages();
-  }, []); // Пустой массив — запрос сделается один раз при монтировании
+  }, [query]); // Пустой массив — запрос сделается один раз при монтировании
 
   if (loading) return <p>Загрузка...</p>;
   if (error) return <p>Ошибка: {error}</p>;
