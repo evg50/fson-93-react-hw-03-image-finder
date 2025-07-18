@@ -2,6 +2,7 @@ import FetchImages from '../FetchImages';
 import { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Button from '../Button/Button';
+import css from './ImageGallery.module.css';
 
 export default function ImageGallery() {
   const [query, setQuery] = useState('');
@@ -11,6 +12,7 @@ export default function ImageGallery() {
   const searchInp = query => {
     setQuery(query);
     setPage(1);
+    setArrImages([]);
     console.log(query, 'запрос в Арр');
   };
 
@@ -40,9 +42,10 @@ export default function ImageGallery() {
     }
   }, [arrImages]);
   return (
-    <div>
+    <div className={css.container}>
       ImageGallery
       <SearchBar searchInput={searchInp} />
+      {arrImages.length > 0 && <Button loadMore={loadMore} />}
       {query && (
         <FetchImages
           query={query}
