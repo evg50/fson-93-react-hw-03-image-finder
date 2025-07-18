@@ -22,7 +22,7 @@ function FetchImages({ query, page, handleArrImage }) {
     if (query) {
       fetchImages();
     }
-  }, [query, page]);
+  }, [query, page, handleArrImage]);
 
   return null; // 🔸 ничего не рендерим
 }

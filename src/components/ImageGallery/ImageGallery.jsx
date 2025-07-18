@@ -15,11 +15,18 @@ export default function ImageGallery() {
   };
 
   const handleArrImage = newImages => {
-    // console.log(arr, 'arr');
     setArrImages(prev => {
-      const ids = new Set(prev.map(img => img.id));
-      const filtered = newImages.filter(img => !ids.has(img.id));
-      return [...prev, ...filtered];
+      const existingIds = new Set(prev.map(img => img.id));
+
+      const allExist = newImages.every(img => existingIds.has(img.id));
+
+      if (allExist) {
+        console.log('Все изображения уже есть. Не обновляем массив.');
+        return prev; // ничего не меняем
+      }
+
+      console.log('Добавляем новые изображения.');
+      return [...prev, ...newImages];
     });
   };
 
@@ -43,17 +50,15 @@ export default function ImageGallery() {
           handleArrImage={handleArrImage}
         />
       )}
-      {
-        arrImages.length > 0 && <p>array images</p>
-        // <ul>
-        //   {arrImages.map(image => (
-
-        //     <li key={image.id}>
-        //       <img src={image.webformatURL} alt="" />
-        //     </li>
-        //   ))}
-        // </ul>
-      }
+      {arrImages.length > 0 && (
+        <ul>
+          {arrImages.map(image => (
+            <li key={image.id}>
+              <img src={image.webformatURL} alt="" />
+            </li>
+          ))}
+        </ul>
+      )}
       {arrImages.length > 0 && <Button loadMore={loadMore} />}
     </div>
   );
