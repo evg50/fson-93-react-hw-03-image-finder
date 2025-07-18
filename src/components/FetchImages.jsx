@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function FetchImages({ query, page, handleArrImage }) {
-  const [images, setImages] = useState();
   useEffect(() => {
     const fetchImages = async () => {
       try {
