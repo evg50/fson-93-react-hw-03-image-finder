@@ -6,6 +6,6 @@ export const fetchImages = async (query, page) => {
   );
   if (!response.ok) throw new Error('Ошибка загрузки');
   const data = await response.json();
-  console.log('Arr Images', data.hits);
+  // console.log('Arr Images', data.hits);
   return data.hits;
 };
