@@ -1,5 +1,5 @@
 export const fetchImages = async (query, page) => {
-  console.log('fn fetchImages run', query);
+  // console.log('fn fetchImages run', query);
   const key = '23915322-b5091aa0ad0b72709b6c0de72';
   const response = await fetch(
     `https://pixabay.com/api/?q=${query}&page=${page}&key=${key}&image_type=photo&orientation=horizontal&per_page=12`

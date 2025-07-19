@@ -6,6 +6,7 @@ import { fetchImages } from '../../api/fetchImages';
 import Modal from 'components/Modal/Modal';
 
 export default function ImageGallery() {
+  const [largeImgUrl, setLargeImgUrl] = useState();
   const [query, setQuery] = useState('cat');
   const [page, setPage] = useState(1);
   const [arrImages, setArrImages] = useState([]);
@@ -41,13 +42,19 @@ export default function ImageGallery() {
 
     getImages();
   }, [query, page]);
-  let id = 3;
+
   function handleModalWindow(e) {
-    console.log(e.target.id);
+    const largeImgUrl = e.target.id;
+    // const lrgImg = e.target.li;
+    // console.log(lrgImg);
+    console.log('url large img', largeImgUrl);
+    setLargeImgUrl(largeImgUrl);
     setIsOpen(true);
-    id = e.target.id;
-    console.log('id', arrImages[id], id);
   }
+  const handleClose = () => {
+    console.log('close Modal window');
+    setIsOpen(false);
+  };
 
   return (
     <div className={css.container}>
@@ -62,12 +69,13 @@ export default function ImageGallery() {
                   className={css.galleryImage}
                   src={image.webformatURL}
                   alt={image.tags}
-                  id={image.id}
+                  li={image.largeImageURL}
+                  id={image.largeImageURL}
                 />
               </li>
             ))}
           </ul>
-          <Modal isOpen={isOpen} imageUrl={arrImages[id].largeImageURL} />
+          <Modal isOpen={isOpen} imageUrl={largeImgUrl} onClose={handleClose} />
           <Button loadMore={loadMore} />
         </>
       )}
