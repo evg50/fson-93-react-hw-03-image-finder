@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import css from './ImageGallery.module.css';
 import SearchBar from '../SearchBar/SearchBar';
 import Button from '../Button/Button';
