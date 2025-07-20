@@ -1,3 +1,4 @@
+import style from './Search.module.css';
 export default function SearchBar({ searchInput }) {
   const handleInputSearch = e => {
     e.preventDefault();
@@ -5,8 +6,8 @@ export default function SearchBar({ searchInput }) {
     searchInput(query);
   };
   return (
-    <div>
-      <form action="" onSubmit={handleInputSearch}>
+    <div className={style.container}>
+      <form className={style.form} action="" onSubmit={handleInputSearch}>
         <button type="submit">Search</button>
         <input type="text" name="searchImg" id="" />
       </form>

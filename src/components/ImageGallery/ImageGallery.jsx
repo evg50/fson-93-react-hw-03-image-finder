@@ -59,7 +59,7 @@ export default function ImageGallery() {
   return (
     <div className={css.container}>
       <SearchBar searchInput={searchInp} />
-      Page {page}
+
       {arrImages.length > 0 && (
         <>
           <ul className={css.galleryList} onClick={handleModalWindow}>
